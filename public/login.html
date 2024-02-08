@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Log in</title>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+
+:root {
+  --dark-color-a: #008080; 
+  --dark-color-b: #a450a4;
+  --light-color: #e6e9ff;
+  --success-color: #5cb85c;
+  --error-color: #d9534f;
+}
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: var(--light-color); 
+  font-family: 'Montserrat', sans-serif; 
+  font-size: 18px;
+}
+
+.loginFrm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.form {
+  background-color: var(--dark-color-b); 
+  width: 400px;
+  border-radius: 20px;
+  padding: 20px 40px;
+  box-shadow: 0 10px 25px rgba(40, 123, 195, 0.726);
+}
+
+.title {
+  font-size: 50px;
+  margin-bottom: 50px;
+  color: var(--light-color); 
+}
+
+.inputContainer {
+  position: relative;
+  height: 45px;
+  width: 90%;
+  margin-bottom: 17px;
+}
+
+.input {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  border: 1px solid black; 
+  border-radius: 7px;
+  font-size: 16px;
+  padding: 0 20px;
+  outline: none;
+  background: none;
+  z-index: 1;
+  color: white 
+}
+
+.input::placeholder {
+  color: transparent;
+}
+
+.input:not(:placeholder-shown) + .label {
+  top: -7px;
+  left: 3px;
+  z-index: 10;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.label {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  padding: 0 4px;
+  color: var(--light-color); 
+  font-size: 16px;
+  z-index: 0;
+}
+
+.submitBtn {
+  display: block;
+  margin-left: auto;
+  padding: 15px 30px;
+  border: none;
+  background-color: var(--dark-color-a); 
+  border-radius: 20px; 
+  color: var(--light-color); 
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.submitBtn:hover {
+  background-color: var(--success-color); 
+  transform: translateY(-2px);
+}
+
+.input:focus {
+  border: 2px solid var(--dark-color-a); 
+}
+
+
+  </style>
+</head>
+<body  onload="checkForErr()">
+
+    
+    <div class="loginFrm">
+        <form action="/" method="post" class="form" >
+          <h1 class="title">Log in</h1>
+    
+          <div class="inputContainer">
+            <input type="text" class="input" placeholder="Username" name="username" required>
+            <label class="label">User Name</label>
+          </div>
+    
+          <div class="inputContainer">
+            <input type="password" class="input" placeholder="password" name="password" required>
+            <label class="label">Password</label>
+          </div>
+    
+          <p>Don't have an account? <a href="/signup">Sign Up</a></p>
+          <div id="err"></div>
+          <button type="submit" class="submitBtn">Log in</button>
+        </form>
+      </div>
+
+</body>
+
+<script>
+      function checkForErr(){
+        var objUrlParams = new URLSearchParams(window.location.search);
+        if(objUrlParams.get('wrong')=="uname"){
+          document.getElementById('err').innerHTML="Username is Incorrect!"
+        }
+        else if(objUrlParams.get('wrong')=="pass"){
+          document.getElementById('err').innerHTML="Password is incorrect!"
+
+        }
+      }
+ </script>
+
+</html>
