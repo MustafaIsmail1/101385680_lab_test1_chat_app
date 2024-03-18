@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
 const userModel = require('./models/user');
-const gmModel = require('./models/Groupchat');
+const gmModel = require('./models/groupchat');
 
 const DB_CONNECTION_STRING =
 "mongodb+srv://mustafaismailmab:mumu123@cluster0.kmefq4m.mongodb.net/comp3133_lab_test1?retryWrites=true&w=majority"
