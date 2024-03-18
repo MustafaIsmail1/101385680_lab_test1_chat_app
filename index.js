@@ -4,7 +4,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
-const userModel = require('./models/User');
+const userModel = require('./models/user');
 const gmModel = require('./models/Groupchat');
 
 const DB_CONNECTION_STRING =
