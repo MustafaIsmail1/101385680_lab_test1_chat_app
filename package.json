@@ -14,5 +14,10 @@
     "moment": "^2.29.4",
     "mongoose": "^6.9.1",
     "socket.io": "^4.6.0"
-  }
+  },
+  "devDependencies": {},
+  "files": [
+    "models"
+  ]
 }
+
