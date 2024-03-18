@@ -41,7 +41,7 @@ const io = socketio(server);
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'frontend')));
 
 const bot = "Bot";
 
@@ -90,11 +90,11 @@ io.on('connection', socket => {
 });
 
 app.get('/signup', async (req, res) => {
-  res.sendFile(__dirname + '/public/signup.html')
+  res.sendFile(__dirname + '/frontend/signup.html')
 });
 
 app.get('/login', async (req, res) => {
-  res.sendFile(__dirname + '/public/login.html')
+  res.sendFile(__dirname + '/frontend/login.html')
 });
 app.post('/login', async (req, res) => {
 const user = new userModel(req.body);
@@ -108,7 +108,7 @@ try {
       
       res.send(err)
     }else{
-      res.sendFile(__dirname + '/public/login.html')
+      res.sendFile(__dirname + '/frontend/login.html')
     }
   });
 } catch (err) {
@@ -117,7 +117,7 @@ try {
 });
 
 app.get('/', async (req, res) => {
-res.sendFile(__dirname + '/public/login.html')
+res.sendFile(__dirname + '/frontend/login.html')
 });
 app.post('/', async (req, res) => {
 const username=req.body.username
